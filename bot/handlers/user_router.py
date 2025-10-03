@@ -8,6 +8,7 @@ import bot.keyboards.reply as rkb
 from utils.utils import return_vacancies, extract_text_from_pdf, extract_text_from_docx
 from utils.async_utils import async_http
 from collections import defaultdict
+import os
 
 router = Router()
 
@@ -33,7 +34,13 @@ async def resume_command(message: Message, state: FSMContext):
 
     await message.answer("""⬇️ Отправь мне своё резюме в формате PDF или DOCX и я выведу его текст.""")
 
-# receiving a request from a user
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+RESUMES_DIR = os.path.join(BASE_DIR, "resumes")
+
+# создание папки, если её нет
+os.makedirs(RESUMES_DIR, exist_ok=True)
+
+# получение файла от пользователя
 @router.message(Resume.sending_resume)
 async def sending_resume_state(message: Message, state: FSMContext):
     # проверка отправил ли пользователь файл
@@ -50,7 +57,7 @@ async def sending_resume_state(message: Message, state: FSMContext):
     # подтверждение получения файла
     file_name = message.document.file_name
     await message.answer(f"Файл <b><i>{file_name.rsplit('.', 1)[0]}</i></b> получен!")
-    file = await message.bot.get_file(message.document.file_id)
+    file = await message.bot.get_file(message   .document.file_id)
     file_path = file.file_path
 
     # cкачивание файла
