@@ -64,7 +64,7 @@ requirements.txt # Перечень зависимостей
    ```
 
    ```env
-   TELEGRAM_BOT_TOKEN=telegram_bot_token\
+   TELEGRAM_BOT_TOKEN=telegram_bot_token
    ```
    
 3. Создай и активируй виртуальное окружение:
@@ -74,7 +74,7 @@ requirements.txt # Перечень зависимостей
    ```
 
    ```bash
-   source .venv/bin/activate
+   source venv/bin/activate
    ```
 
 4. Установи зависимости:
@@ -90,7 +90,7 @@ requirements.txt # Перечень зависимостей
    ```
 
    ```bash
-   source .venv/bin/activate
+   source venv/bin/activate
    ```
 
    ```bash
@@ -102,7 +102,7 @@ requirements.txt # Перечень зависимостей
    ```
    
    ```bash
-   source .venv/bin/activate
+   source venv/bin/activate
    ```
    
    ```bash

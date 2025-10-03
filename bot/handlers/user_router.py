@@ -49,7 +49,7 @@ async def sending_resume_state(message: Message, state: FSMContext):
 
     # подтверждение получения файла
     file_name = message.document.file_name
-    await message.answer(f"Файл <b><i>{file_name.rsplit(".", 1)[0]}</i></b> получен!")
+    await message.answer(f"Файл <b><i>{file_name.rsplit('.', 1)[0]}</i></b> получен!")
     file = await message.bot.get_file(message.document.file_id)
     file_path = file.file_path
 
